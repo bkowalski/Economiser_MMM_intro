@@ -304,6 +304,8 @@ coeffs <- model.2$coefficients
 
 decomp.df <- coeffs * t(X)
 decomp.df <- t(decomp.df)
+decomp.df <- cbind.data.frame(economiser.data.df$date, decomp.df)
+colnames(decomp.df)[1] <- 'date'
 decomp.df
 
 fitted <- rowSums(decomp.df)
@@ -314,7 +316,7 @@ all.equal(fitted, model.2$fitted.values)
 ref.lev <- rep(0, 7)
 names(ref.lev) <- colnames(X)
 
-ggplot(X, aes(x = economiser.data.df$date, y = `log(price.own)`)) +
+ggplot(decomp.df, aes(x = date, y = `log(price.own)`)) +
     geom_line()
 
 ref.lev['log(price.own)'] <- min(X$`log(price.own)`)
