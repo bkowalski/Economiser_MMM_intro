@@ -301,6 +301,8 @@ decomp.df <- cbind.data.frame(economiser.data.df$date, decomp.df)
 colnames(decomp.df)[1] <- 'date'
 View(decomp.df)
 
+# sprawdzenie
+
 # Ćwiczenie 2: Korzystając z dwóch poniższych obiektów dokonaj sprawdzenia
 # czy dokonaliśmy faktycznej dekompozycji sprzedaży, tzn. czy wpływ wszystkich czynników
 # sumuje się do sprzedaży dopasowanej przez model
@@ -350,3 +352,41 @@ decomp.long.df$variable <- factor(decomp.long.df$variable,levels(decomp.long.df$
 
 ggplot(decomp.long.df, aes(x = date, y = value, fill = variable)) +
     geom_bar(stat = 'identity')
+
+
+
+#### Analizy ####
+options(scipen = 999)
+
+# Ćwiczenie 4a
+# W modelu objaśniającym sprzedaż mleka w litrach, który oszacowałeś,
+# tygodniowe wydatki na reklamę w telewizji opisuje następujący
+# fragment równania: b1 * TV_spend ^ 0.5.
+# - oszacowany parametr b1 = 0.75
+# - cena mleka wynosi 2.50 zł
+# - marża producenta wymnosi 30%
+# Oblicz optymalny poziom tygodniowych wydatków na telewizję.
+
+TV_spend <- seq(from = 0, to = 500000, by = 10000)
+incremental.volume <- _ _ _
+incremental.value <- _ _ _
+incremental.gross.margin <- _ _ _
+profit <- _ _ _
+TV.spend.opt.df <- cbind.data.frame(TV_spend, incremental.volume, incremental.value, incremental.gross.margin, profit)
+TV.spend.opt.df[profit == max(profit), ]
+
+## DLA CIEKAWSKICH, uwaga na boku -> studia mają sens ##
+marginal.incremental.gross.margin <- incremental.gross.margin[-1] - incremental.gross.margin[-length(incremental.gross.margin)]
+marginal.cost <- TV_spend[-1] - TV_spend[-length(TV_spend)]
+TV.spend.opt.alternative.df <- cbind.data.frame(TV_spend[-length(TV_spend)], marginal.incremental.gross.margin, marginal.cost)
+
+# Ćwiczenie 4b
+# Przeklej kod z Ćwiczenia 4a i zmień go w ten sposób, aby odpowiedzieć na pytanie
+# jaki byłby optymalny poziom tygodniowych wydatków w TV,
+# gdyby producent osiągał marżę 40% zamiast 30%
+_ _ _
+_ _ _
+_ _ _
+_ _ _
+_ _ _
+_ _ _
