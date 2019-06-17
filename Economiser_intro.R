@@ -362,7 +362,7 @@ options(scipen = 999)
 # W modelu objaśniającym sprzedaż mleka w litrach, który oszacowałeś,
 # tygodniowe wydatki na reklamę w telewizji opisuje następujący
 # fragment równania: b1 * TV_spend ^ 0.5.
-# - oszacowany parametr b1 = 0.75
+# - oszacowany parametr b1 = 1200
 # - cena mleka wynosi 2.50 zł
 # - marża producenta wymnosi 30%
 # Oblicz optymalny poziom tygodniowych wydatków na telewizję.
@@ -384,6 +384,7 @@ TV.spend.opt.alternative.df <- cbind.data.frame(TV_spend[-length(TV_spend)], mar
 # Przeklej kod z Ćwiczenia 4a i zmień go w ten sposób, aby odpowiedzieć na pytanie
 # jaki byłby optymalny poziom tygodniowych wydatków w TV,
 # gdyby producent osiągał marżę 40% zamiast 30%
+_ _ _
 _ _ _
 _ _ _
 _ _ _
